@@ -27,14 +27,14 @@ export class ProductServiceStack extends cdk.Stack {
     const productsResource = api.root.addResource('products');
     productsResource.addMethod('GET', new apigateway.LambdaIntegration(getProductsList));
     productsResource.addCorsPreflight({
-        allowOrigins: ['https://dqzafs7lo44d.cloudfront.net', 'http://localhost:3000/'],
+        allowOrigins: ['https://dqzafs7lo44d.cloudfront.net', 'http://localhost:3000'],
         allowMethods: ['GET'],
       });
 
     const singleProductResource = productsResource.addResource('{productId}');
     singleProductResource.addMethod('GET', new apigateway.LambdaIntegration(getProductsById));
     singleProductResource.addCorsPreflight({
-        allowOrigins: ['https://dqzafs7lo44d.cloudfront.net', 'http://localhost:3000/'],
+        allowOrigins: ['https://dqzafs7lo44d.cloudfront.net', 'http://localhost:3000'],
         allowMethods: ['GET'],
       });
   }

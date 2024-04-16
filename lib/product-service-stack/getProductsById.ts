@@ -8,8 +8,9 @@ export async function main(event: { pathParameters: { productId: any; }; }) {
     return {
         statusCode: product ? 200 : 404,
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "Content-Type"
         },
         body: JSON.stringify(product || { message: 'Product not found' })
     };

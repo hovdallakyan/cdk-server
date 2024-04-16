@@ -41,8 +41,10 @@ export async function main() {
     return {
         statusCode: 200,
         headers: {
-            'Content-Type': 'application/json'
-        },
+          "Access-Control-Allow-Origin": "*", 
+          "Access-Control-Allow-Methods": "GET",
+          "Access-Control-Allow-Headers": "Content-Type"
+      },
         body: JSON.stringify(products)
     };
 };
