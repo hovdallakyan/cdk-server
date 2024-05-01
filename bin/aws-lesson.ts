@@ -3,7 +3,9 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { AwsLessonStack } from '../lib/aws-lesson-stack';
 import { HelloLambdaStack } from '../lib/hello-lambda/hello-lambda-stack';
+import { DynamoDBStack } from '../lib/dynamodb-stack/dynamodb-stack';
 import { ProductServiceStack } from '../lib/product-service-stack/product-service-stack';
+import { ImportServiceStack } from '../lib/import-service-stack/import-service-stack';
 
 const app = new cdk.App();
 
@@ -11,6 +13,12 @@ new HelloLambdaStack(app, 'HelloLambdaStack', {
   env: { account: '339713135609', region: 'eu-central-1' },
 });
 new ProductServiceStack(app, 'ProductServiceStack', {
+  env: { account: '339713135609', region: 'eu-central-1' },
+});
+new DynamoDBStack(app, 'DynamoDBStack', {
+  env: { account: '339713135609', region: 'eu-central-1' },
+});
+new ImportServiceStack(app, 'ImportServiceStack', {
   env: { account: '339713135609', region: 'eu-central-1' },
 });
 new AwsLessonStack(app, 'AwsLessonStack', {
